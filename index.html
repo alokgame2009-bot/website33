@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkylerNodes - Minecraft Hosting</title>
+
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="assets/logo.png" class="nav-logo" alt="SkylerNodes Logo">
+      <h2 class="brand">Skyler<span>Nodes</span></h2>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#plans">Plans</a>
+      <a href="#features">Features</a>
+      <a href="#auction">Auction</a>
+      <a href="#billing">Billing</a>
+      <a href="#auth">Login</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1>SkylerNodes Hosting</h1>
+      <p>Powerful Minecraft Hosting • Lag Free Servers • DDoS Protection • 24/7 Support</p>
+
+      <div class="hero-buttons">
+        <a href="#plans" class="btn">View Plans</a>
+        <a href="#auth" class="btn outline">Login / Register</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section class="section" id="plans">
+    <h2 class="section-title">Minecraft Hosting Plans</h2>
+    <p class="section-sub">Choose the best plan for your Minecraft server.</p>
+
+    <div class="plans">
+
+      <div class="plan-card">
+        <h3>Starter</h3>
+        <p class="price">₹79<span>/month</span></p>
+        <ul>
+          <li>✔ 1GB RAM</li>
+          <li>✔ 10GB SSD</li>
+          <li>✔ DDoS Protection</li>
+          <li>✔ Pterodactyl Panel</li>
+        </ul>
+        <button onclick="orderPlan('Starter', 79)">Order Now</button>
+      </div>
+
+      <div class="plan-card popular">
+        <p class="tag">Most Popular</p>
+        <h3>Basic</h3>
+        <p class="price">₹149<span>/month</span></p>
+        <ul>
+          <li>✔ 2GB RAM</li>
+          <li>✔ 20GB SSD</li>
+          <li>✔ Free Backup</li>
+          <li>✔ Full Plugin Support</li>
+        </ul>
+        <button onclick="orderPlan('Basic', 149)">Order Now</button>
+      </div>
+
+      <div class="plan-card">
+        <h3>Pro</h3>
+        <p class="price">₹249<span>/month</span></p>
+        <ul>
+          <li>✔ 3GB RAM</li>
+          <li>✔ 30GB SSD</li>
+          <li>✔ Premium CPU</li>
+          <li>✔ Mod Support</li>
+        </ul>
+        <button onclick="orderPlan('Pro', 249)">Order Now</button>
+      </div>
+
+      <div class="plan-card">
+        <h3>Ultra</h3>
+        <p class="price">₹399<span>/month</span></p>
+        <ul>
+          <li>✔ 6GB RAM</li>
+          <li>✔ 60GB SSD</li>
+          <li>✔ Unlimited Slots</li>
+          <li>✔ Free Setup</li>
+        </ul>
+        <button onclick="orderPlan('Ultra', 399)">Order Now</button>
+      </div>
+
+      <div class="plan-card">
+        <h3>Extreme</h3>
+        <p class="price">₹699<span>/month</span></p>
+        <ul>
+          <li>✔ 10GB RAM</li>
+          <li>✔ 120GB SSD</li>
+          <li>✔ Dedicated CPU</li>
+          <li>✔ Priority Support</li>
+        </ul>
+        <button onclick="orderPlan('Extreme', 699)">Order Now</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section dark" id="features">
+    <h2 class="section-title">Why SkylerNodes?</h2>
+    <p class="section-sub">Best performance and best support for Minecraft servers.</p>
+
+    <div class="features">
+      <div class="feature-box">⚡ NVMe SSD Storage</div>
+      <div class="feature-box">🛡️ Strong DDoS Protection</div>
+      <div class="feature-box">🎮 Pterodactyl Panel Support</div>
+      <div class="feature-box">🌍 India Servers + Global</div>
+      <div class="feature-box">🔧 Mods & Plugins Supported</div>
+      <div class="feature-box">📞 24/7 Support</div>
+    </div>
+  </section>
+
+  <!-- AUCTION -->
+  <section class="section" id="auction">
+    <h2 class="section-title">Auction Marketplace</h2>
+    <p class="section-sub">Bid on special hosting deals & premium services.</p>
+
+    <div class="auction-filters">
+      <button class="filter-btn active" onclick="filterAuction('all')">All</button>
+      <button class="filter-btn" onclick="filterAuction('hosting')">Hosting</button>
+      <button class="filter-btn" onclick="filterAuction('domains')">Domains</button>
+      <button class="filter-btn" onclick="filterAuction('setup')">Setup</button>
+    </div>
+
+    <div class="auction-grid" id="auctionGrid">
+
+      <div class="auction-card hosting">
+        <img src="assets/banner.png" alt="Auction Image">
+        <h3>Ultra Plan 50% OFF</h3>
+        <p class="category">Category: Hosting</p>
+        <p class="bid">Current Bid: ₹<span id="bid1">199</span></p>
+        <input type="number" id="input1" placeholder="Enter your bid">
+        <button onclick="placeBid(1)">Bid Now</button>
+      </div>
+
+      <div class="auction-card domains">
+        <img src="assets/banner.png" alt="Auction Image">
+        <h3>Free Domain Deal</h3>
+        <p class="category">Category: Domains</p>
+        <p class="bid">Current Bid: ₹<span id="bid2">99</span></p>
+        <input type="number" id="input2" placeholder="Enter your bid">
+        <button onclick="placeBid(2)">Bid Now</button>
+      </div>
+
+      <div class="auction-card setup">
+        <img src="assets/banner.png" alt="Auction Image">
+        <h3>SkyBlock Setup Service</h3>
+        <p class="category">Category: Setup</p>
+        <p class="bid">Current Bid: ₹<span id="bid3">299</span></p>
+        <input type="number" id="input3" placeholder="Enter your bid">
+        <button onclick="placeBid(3)">Bid Now</button>
+      </div>
+
+      <div class="auction-card hosting">
+        <img src="assets/banner.png" alt="Auction Image">
+        <h3>Lifetime Hosting Deal</h3>
+        <p class="category">Category: Hosting</p>
+        <p class="bid">Current Bid: ₹<span id="bid4">499</span></p>
+        <input type="number" id="input4" placeholder="Enter your bid">
+        <button onclick="placeBid(4)">Bid Now</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BILLING -->
+  <section class="section dark" id="billing">
+    <h2 class="section-title">Billing & Payment</h2>
+    <p class="section-sub">Pay using UPI QR Code and submit your payment.</p>
+
+    <div class="billing-box">
+      <div class="billing-left">
+        <h3>Pay Using UPI</h3>
+        <p><b>UPI ID:</b> skylernodes@upi</p>
+        <p><b>Accepted:</b> PhonePe • Paytm • Google Pay</p>
+
+        <div class="pay-buttons">
+          <button class="pay-btn">PhonePe</button>
+          <button class="pay-btn">Paytm</button>
+          <button class="pay-btn">Google Pay</button>
+          <button class="pay-btn">Razorpay Link</button>
+        </div>
+      </div>
+
+      <div class="billing-right">
+        <img src="assets/qr.png" class="qr" alt="QR Code">
+        <p class="qr-text">Scan QR to Pay</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGIN REGISTER -->
+  <section class="section" id="auth">
+    <h2 class="section-title">Login / Register</h2>
+
+    <div class="auth-container">
+
+      <div class="auth-box">
+        <h3>Register</h3>
+        <input type="text" id="regUser" placeholder="Username">
+        <input type="email" id="regEmail" placeholder="Email">
+        <input type="password" id="regPass" placeholder="Password">
+        <button onclick="registerUser()">Register</button>
+      </div>
+
+      <div class="auth-box">
+        <h3>Login</h3>
+        <input type="text" id="loginUser" placeholder="Username or Email">
+        <input type="password" id="loginPass" placeholder="Password">
+        <button onclick="loginUser()">Login</button>
+      </div>
+
+    </div>
+
+    <div class="dashboard" id="dashboard">
+      <h3>Welcome, <span id="dashUser"></span> 👋</h3>
+      <p>Your purchased plan will show here.</p>
+
+      <div class="dash-box">
+        <p><b>Active Plan:</b> <span id="activePlan">None</span></p>
+        <p><b>Last Payment:</b> ₹<span id="lastPayment">0</span></p>
+      </div>
+
+      <button class="logout" onclick="logoutUser()">Logout</button>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section dark" id="contact">
+    <h2 class="section-title">Contact SkylerNodes</h2>
+    <p class="section-sub">Need support? Contact us anytime.</p>
+
+    <div class="contact-box">
+      <p><b>Email:</b> support@skylernodes.com</p>
+      <p><b>Discord:</b> discord.gg/skylernodes</p>
+      <p><b>WhatsApp:</b> +91 00000 00000</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 SkylerNodes | All Rights Reserved</p>
+  </footer>
+
+  <!-- ORDER MODAL -->
+  <div class="modal" id="orderModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <h2>Checkout</h2>
+      <p><b>Plan:</b> <span id="modalPlan"></span></p>
+      <p><b>Price:</b> ₹<span id="modalPrice"></span></p>
+
+      <input type="text" id="custName" placeholder="Your Name">
+      <input type="email" id="custEmail" placeholder="Your Email">
+      <input type="text" id="mcName" placeholder="Minecraft Username">
+
+      <p style="margin-top: 10px;"><b>Pay Now Using QR:</b></p>
+      <img src="assets/qr.png" class="qr modal-qr" alt="QR Code">
+
+      <button onclick="confirmPayment()">I Have Paid</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
